@@ -14,3 +14,14 @@ for(ttev in 2003:2025) {
     temp.h1 <- c(temp.h1, hom[paste(ttaktstart,"/")])
     detach(pos = 2)
 }
+
+pdf("h1hom.pdf", width=6*7)
+par(mar=c(3.1,2.6,1.1,2.6))
+plot.zoo(temp.h1, xaxs = "i", xlab = "", type = "n", xaxt = "n")
+grid(nx = NA, ny = NULL)
+axis(4)
+axis(1, at = as.POSIXct(paste0(2002:2025,"-01-01")), lab = FALSE)
+axis.POSIXct(1, at = as.POSIXct(paste0(2002:2025,"-07-02")), format = "%Y", tick = FALSE)
+abline(v=as.POSIXct(paste0(2002:2025,"-01-01")), col="lightgray", lty="dotted")
+lines(as.zoo(temp.h1))
+dev.off()
