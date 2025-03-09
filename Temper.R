@@ -2,11 +2,11 @@ Sys.setenv(TZ='UTC')
 library(xts)
 ### h1
 ## Load necessary dates
-attach("../2003/h1/.RData")
+attach("../2002/h1/.RData")
 temp.h1 <- hom
 detach(pos = 2)
 
-for(ttev in 2004:2025) {
+for(ttev in 2003:2025) {
     attach(paste0("../",ttev,"/h1/.RData"))
     ttaktind <- index(temp.h1)
     ttaktend <- ttaktind[length(ttaktind)]
