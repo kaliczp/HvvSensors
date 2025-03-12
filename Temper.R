@@ -37,3 +37,6 @@ abline(v=as.POSIXct(paste0(2002:2025,"-01-01")), col="lightgray", lty="dotted") 
 lines(as.zoo(temp.h1))
 ## Save pdf
 dev.off()
+
+## Export monthly average
+write.zoo(round(apply.monthly(temp.h1, colMeans),2), "Dataqua.csv", sep = ";", dec = ",")
